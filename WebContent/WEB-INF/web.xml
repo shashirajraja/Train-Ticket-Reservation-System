@@ -1,328 +1,294 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app>
-<servlet>
-<servlet-name>UserLoginServlet</servlet-name>
-<servlet-class>test.UserLoginServlet</servlet-class>
-</servlet>
-<servlet-mapping>
-<servlet-name>UserLoginServlet</servlet-name>
-<url-pattern>/userlogin</url-pattern>
-</servlet-mapping>
-
-<servlet>
-<servlet-name>BookTrainFwd</servlet-name>
-<servlet-class>test.BookTrainFwd</servlet-class>
-</servlet>
-<servlet-mapping>
-<servlet-name>BookTrainFwd</servlet-name>
-<url-pattern>/booktrainfwd</url-pattern>
-</servlet-mapping>
-
-<servlet>
-<servlet-name>BookTrains</servlet-name>
-<servlet-class>test.BookTrains</servlet-class>
-</servlet>
-<servlet-mapping>
-<servlet-name>BookTrains</servlet-name>
-<url-pattern>/booktrains</url-pattern>
-</servlet-mapping>
-
-<servlet>
-<servlet-name>BookTrainByRef</servlet-name>
-<servlet-class>test.BookTrainByRef</servlet-class>
-</servlet>
-<servlet-mapping>
-<servlet-name>BookTrainByRef</servlet-name>
-<url-pattern>/booktrainbyref</url-pattern>
-</servlet-mapping>
-
-<servlet>
-<servlet-name>UserViewTrainFwd</servlet-name>
-<servlet-class>test.UserViewTrainFwd</servlet-class>
-</servlet>
-<servlet-mapping>
-<servlet-name>UserViewTrainFwd</servlet-name>
-<url-pattern>/userviewtrainfwd</url-pattern>
-</servlet-mapping>
-
-<servlet>
-<servlet-name>UserViewLinkGet</servlet-name>
-<servlet-class>test.UserViewLinkGet</servlet-class>
-</servlet>
-<servlet-mapping>
-<servlet-name>UserViewLinkGet</servlet-name>
-<url-pattern>/view</url-pattern>
-</servlet-mapping>
-
-<servlet>
-<servlet-name>AddTrainFwd</servlet-name>
-<servlet-class>test.AddTrainFwd</servlet-class>
-</servlet>
-<servlet-mapping>
-<servlet-name>AddTrainFwd</servlet-name>
-<url-pattern>/addtrainfwd</url-pattern>
-</servlet-mapping>
-
-<servlet>
-<servlet-name>AdminViewLinkFwd</servlet-name>
-<servlet-class>test.AdminViewLinkFwd</servlet-class>
-</servlet>
-<servlet-mapping>
-<servlet-name>AdminViewLinkFwd</servlet-name>
-<url-pattern>/viewadmin</url-pattern>
-</servlet-mapping>
-
-<servlet>
-<servlet-name>AdminAddTrain</servlet-name>
-<servlet-class>test.AdminAddTrain</servlet-class>
-</servlet>
-<servlet-mapping>
-<servlet-name>AdminAddTrain</servlet-name>
-<url-pattern>/adminaddtrain</url-pattern>
-</servlet-mapping>
-
-<servlet>
-<servlet-name>AdminCancleTrainFwd</servlet-name>
-<servlet-class>test.AdminCancleTrainFwd</servlet-class>
-</servlet>
-<servlet-mapping>
-<servlet-name>AdminCancleTrainFwd</servlet-name>
-<url-pattern>/cancletrainfwd</url-pattern>
-</servlet-mapping>
-
-<servlet>
-<servlet-name>AdminCancleTrain</servlet-name>
-<servlet-class>test.AdminCancleTrain</servlet-class>
-</servlet>
-<servlet-mapping>
-<servlet-name>AdminCancleTrain</servlet-name>
-<url-pattern>/admincancletrain</url-pattern>
-</servlet-mapping>
-
-<servlet>
-<servlet-name>AdminSearchTrain</servlet-name>
-<servlet-class>test.AdminSearchTrain</servlet-class>
-</servlet>
-<servlet-mapping>
-<servlet-name>AdminSearchTrain</servlet-name>
-<url-pattern>/adminsearchtrain</url-pattern>
-</servlet-mapping>
-
-<servlet>
-<servlet-name>AdminSearchTrainFwd</servlet-name>
-<servlet-class>test.AdminSearchTrainFwd</servlet-class>
-</servlet>
-<servlet-mapping>
-<servlet-name>AdminSearchTrainFwd</servlet-name>
-<url-pattern>/adminsearchtrainfwd</url-pattern>
-</servlet-mapping>
-
-<servlet>
-<servlet-name>AdminViewTrainFwd</servlet-name>
-<servlet-class>test.AdminViewTrainFwd</servlet-class>
-</servlet>
-<servlet-mapping>
-<servlet-name>AdminViewTrainFwd</servlet-name>
-<url-pattern>/adminviewtrainfwd</url-pattern>
-</servlet-mapping>
-
-<servlet>
-<servlet-name>UpdateTrainSchedule</servlet-name>
-<servlet-class>test.UpdateTrainSchedule</servlet-class>
-</servlet>
-<servlet-mapping>
-<servlet-name>UpdateTrainSchedule</servlet-name>
-<url-pattern>/updatetrainschedule</url-pattern>
-</servlet-mapping>
-
-<servlet>
-<servlet-name>AdminTrainUpdateFwd</servlet-name>
-<servlet-class>test.AdminTrainUpdateFwd</servlet-class>
-</servlet>
-<servlet-mapping>
-<servlet-name>AdminTrainUpdateFwd</servlet-name>
-<url-pattern>/updatetrain</url-pattern>
-</servlet-mapping>
-
-<servlet>
-<servlet-name>AdminTrainUpdate</servlet-name>
-<servlet-class>test.AdminTrainUpdate</servlet-class>
-</servlet>
-<servlet-mapping>
-<servlet-name>AdminTrainUpdate</servlet-name>
-<url-pattern>/adminupdatetrain</url-pattern>
-</servlet-mapping>
-
-<servlet>
-<servlet-name>UserHome</servlet-name>
-<servlet-class>test.UserHome</servlet-class>
-</servlet>
-<servlet-mapping>
-<servlet-name>UserHome</servlet-name>
-<url-pattern>/userhome</url-pattern>
-</servlet-mapping>
-
-<servlet>
-<servlet-name>UserLogoutServlet</servlet-name>
-<servlet-class>test.UserLogoutServlet</servlet-class>
-</servlet>
-<servlet-mapping>
-<servlet-name>UserLogoutServlet</servlet-name>
-<url-pattern>/userlogout</url-pattern>
-</servlet-mapping>
-
-<servlet>
-<servlet-name>UserSearchFwd</servlet-name>
-<servlet-class>test.UserSearchFwd</servlet-class>
-</servlet>
-<servlet-mapping>
-<servlet-name>UserSearchFwd</servlet-name>
-<url-pattern>/usersearchtrain</url-pattern>
-</servlet-mapping>
-
-<servlet>
-<servlet-name>FareEnqFwd</servlet-name>
-<servlet-class>test.FareEnqFwd</servlet-class>
-</servlet>
-<servlet-mapping>
-<servlet-name>FareEnqFwd</servlet-name>
-<url-pattern>/fareenqfwd</url-pattern>
-</servlet-mapping>
-
-<servlet>
-<servlet-name>FareEnq</servlet-name>
-<servlet-class>test.FareEnq</servlet-class>
-</servlet>
-<servlet-mapping>
-<servlet-name>FareEnq</servlet-name>
-<url-pattern>/fareenq</url-pattern>
-</servlet-mapping>
-
-<servlet>
-<servlet-name>ViewUserProfile</servlet-name>
-<servlet-class>test.ViewUserProfile</servlet-class>
-</servlet>
-<servlet-mapping>
-<servlet-name>ViewUserProfile</servlet-name>
-<url-pattern>/viewuserprofile</url-pattern>
-</servlet-mapping>
-
-<servlet>
-<servlet-name>EditUserProfile</servlet-name>
-<servlet-class>test.EditUserProfile</servlet-class>
-</servlet>
-<servlet-mapping>
-<servlet-name>EditUserProfile</servlet-name>
-<url-pattern>/edituserprofile</url-pattern>
-</servlet-mapping>
-
-<servlet>
-<servlet-name>ChangeUserPassword</servlet-name>
-<servlet-class>test.ChangeUserPassword</servlet-class>
-</servlet>
-<servlet-mapping>
-<servlet-name>ChangeUserPassword</servlet-name>
-<url-pattern>/changeuserpassword</url-pattern>
-</servlet-mapping>
-<servlet>
-
-<servlet-name>ChangeUserPwd</servlet-name>
-<servlet-class>test.ChangeUserPwd</servlet-class>
-</servlet>
-<servlet-mapping>
-<servlet-name>ChangeUserPwd</servlet-name>
-<url-pattern>/changeuserpwd</url-pattern>
-</servlet-mapping>
-
-<servlet>
-<servlet-name>UpdateUserProfile</servlet-name>
-<servlet-class>test.UpdateUserProfile</servlet-class>
-</servlet>
-<servlet-mapping>
-<servlet-name>UpdateUserProfile</servlet-name>
-<url-pattern>/updateuserprofile</url-pattern>
-</servlet-mapping>
-
-<servlet>
-<servlet-name>UserProfile</servlet-name>
-<servlet-class>test.UserProfile</servlet-class>
-</servlet>
-<servlet-mapping>
-<servlet-name>UserProfile</servlet-name>
-<url-pattern>/userprofile</url-pattern>
-</servlet-mapping>
-
-<servlet>
-<servlet-name>UserSearchTrain</servlet-name>
-<servlet-class>test.UserSearchTrain</servlet-class>
-</servlet>
-<servlet-mapping>
-<servlet-name>UserSearchTrain</servlet-name>
-<url-pattern>/searchtrainservlet</url-pattern>
-</servlet-mapping>
-
-<servlet>
-<servlet-name>UserAvailFwd</servlet-name>
-<servlet-class>test.UserAvailFwd</servlet-class>
-</servlet>
-<servlet-mapping>
-<servlet-name>UserAvailFwd</servlet-name>
-<url-pattern>/useravailfwd</url-pattern>
-</servlet-mapping>
-<servlet>
-<servlet-name>TrainBwStnFwd</servlet-name>
-<servlet-class>test.TrainBwStnFwd</servlet-class>
-</servlet>
-<servlet-mapping>
-<servlet-name>TrainBwStnFwd</servlet-name>
-<url-pattern>/trainbwstnfwd</url-pattern>
-</servlet-mapping>
-<servlet>
-<servlet-name>TrainBwStn</servlet-name>
-<servlet-class>test.TrainBwStn</servlet-class>
-</servlet>
-<servlet-mapping>
-<servlet-name>TrainBwStn</servlet-name>
-<url-pattern>/trainbwstn</url-pattern>
-</servlet-mapping>
-
-<servlet>
-<servlet-name>UserAvailServlet</servlet-name>
-<servlet-class>test.UserAvailServlet</servlet-class>
-</servlet>
-<servlet-mapping>
-<servlet-name>UserAvailServlet</servlet-name>
-<url-pattern>/useravail</url-pattern>
-</servlet-mapping>
-
-<servlet>
-<servlet-name>AdminLogin</servlet-name>
-<servlet-class>test.AdminLogin</servlet-class>
-</servlet>
-<servlet-mapping>
-<servlet-name>AdminLogin</servlet-name>
-<url-pattern>/adminlogin</url-pattern>
-</servlet-mapping>
-
-<servlet>
-<servlet-name>UserRegServlet</servlet-name>
-<servlet-class>test.UserRegServlet</servlet-class>
-</servlet>
-<servlet-mapping>
-<servlet-name>UserRegServlet</servlet-name>
-<url-pattern>/userreg</url-pattern>
-</servlet-mapping>
-
-<servlet>
-<servlet-name>AdminLogoutServlet</servlet-name>
-<servlet-class>test.AdminLogoutServlet</servlet-class>
-</servlet>
-<servlet-mapping>
-<servlet-name>AdminLogoutServlet</servlet-name>
-<url-pattern>/adminlogout</url-pattern>
-</servlet-mapping>
-
-<welcome-file-list>
-<welcome-file>UserLogin.html</welcome-file>
-</welcome-file-list>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:web="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+  <servlet>
+    <servlet-name>UserLoginServlet</servlet-name>
+    <servlet-class>com.shashi.servlets.UserLoginServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UserLoginServlet</servlet-name>
+    <url-pattern>/userlogin</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>BookTrainFwd</servlet-name>
+    <servlet-class>com.shashi.servlets.BookTrainFwd</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BookTrainFwd</servlet-name>
+    <url-pattern>/booktrainfwd</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>BookTrains</servlet-name>
+    <servlet-class>com.shashi.servlets.BookTrains</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BookTrains</servlet-name>
+    <url-pattern>/booktrains</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>BookTrainByRef</servlet-name>
+    <servlet-class>com.shashi.servlets.BookTrainByRef</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BookTrainByRef</servlet-name>
+    <url-pattern>/booktrainbyref</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>UserViewTrainFwd</servlet-name>
+    <servlet-class>com.shashi.servlets.UserViewTrainFwd</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UserViewTrainFwd</servlet-name>
+    <url-pattern>/userviewtrainfwd</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>UserViewLinkGet</servlet-name>
+    <servlet-class>com.shashi.servlets.UserViewLinkGet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UserViewLinkGet</servlet-name>
+    <url-pattern>/view</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>AddTrainFwd</servlet-name>
+    <servlet-class>com.shashi.servlets.AddTrainFwd</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddTrainFwd</servlet-name>
+    <url-pattern>/addtrainfwd</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>AdminViewLinkFwd</servlet-name>
+    <servlet-class>com.shashi.servlets.AdminViewLinkFwd</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdminViewLinkFwd</servlet-name>
+    <url-pattern>/viewadmin</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>AdminAddTrain</servlet-name>
+    <servlet-class>com.shashi.servlets.AdminAddTrain</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdminAddTrain</servlet-name>
+    <url-pattern>/adminaddtrain</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>AdminCancleTrainFwd</servlet-name>
+    <servlet-class>com.shashi.servlets.AdminCancleTrainFwd</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdminCancleTrainFwd</servlet-name>
+    <url-pattern>/cancletrainfwd</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>AdminCancleTrain</servlet-name>
+    <servlet-class>com.shashi.servlets.AdminCancleTrain</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdminCancleTrain</servlet-name>
+    <url-pattern>/admincancletrain</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>AdminSearchTrain</servlet-name>
+    <servlet-class>com.shashi.servlets.AdminSearchTrain</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdminSearchTrain</servlet-name>
+    <url-pattern>/adminsearchtrain</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>AdminSearchTrainFwd</servlet-name>
+    <servlet-class>com.shashi.servlets.AdminSearchTrainFwd</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdminSearchTrainFwd</servlet-name>
+    <url-pattern>/adminsearchtrainfwd</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>AdminViewTrainFwd</servlet-name>
+    <servlet-class>com.shashi.servlets.AdminViewTrainFwd</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdminViewTrainFwd</servlet-name>
+    <url-pattern>/adminviewtrainfwd</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>UpdateTrainSchedule</servlet-name>
+    <servlet-class>com.shashi.servlets.UpdateTrainSchedule</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateTrainSchedule</servlet-name>
+    <url-pattern>/updatetrainschedule</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>AdminTrainUpdateFwd</servlet-name>
+    <servlet-class>com.shashi.servlets.AdminTrainUpdateFwd</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdminTrainUpdateFwd</servlet-name>
+    <url-pattern>/updatetrain</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>AdminTrainUpdate</servlet-name>
+    <servlet-class>com.shashi.servlets.AdminTrainUpdate</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdminTrainUpdate</servlet-name>
+    <url-pattern>/adminupdatetrain</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>UserHome</servlet-name>
+    <servlet-class>com.shashi.servlets.UserHome</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UserHome</servlet-name>
+    <url-pattern>/userhome</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>UserLogoutServlet</servlet-name>
+    <servlet-class>com.shashi.servlets.UserLogoutServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UserLogoutServlet</servlet-name>
+    <url-pattern>/userlogout</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>UserSearchFwd</servlet-name>
+    <servlet-class>com.shashi.servlets.UserSearchFwd</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UserSearchFwd</servlet-name>
+    <url-pattern>/usersearchtrain</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>FareEnqFwd</servlet-name>
+    <servlet-class>com.shashi.servlets.FareEnqFwd</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FareEnqFwd</servlet-name>
+    <url-pattern>/fareenqfwd</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>FareEnq</servlet-name>
+    <servlet-class>com.shashi.servlets.FareEnq</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FareEnq</servlet-name>
+    <url-pattern>/fareenq</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>ViewUserProfile</servlet-name>
+    <servlet-class>com.shashi.servlets.ViewUserProfile</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewUserProfile</servlet-name>
+    <url-pattern>/viewuserprofile</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>EditUserProfile</servlet-name>
+    <servlet-class>com.shashi.servlets.EditUserProfile</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EditUserProfile</servlet-name>
+    <url-pattern>/edituserprofile</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>ChangeUserPassword</servlet-name>
+    <servlet-class>com.shashi.servlets.ChangeUserPassword</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ChangeUserPassword</servlet-name>
+    <url-pattern>/changeuserpassword</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>ChangeUserPwd</servlet-name>
+    <servlet-class>com.shashi.servlets.ChangeUserPwd</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ChangeUserPwd</servlet-name>
+    <url-pattern>/changeuserpwd</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>UpdateUserProfile</servlet-name>
+    <servlet-class>com.shashi.servlets.UpdateUserProfile</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateUserProfile</servlet-name>
+    <url-pattern>/updateuserprofile</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>UserProfile</servlet-name>
+    <servlet-class>com.shashi.servlets.UserProfile</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UserProfile</servlet-name>
+    <url-pattern>/userprofile</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>UserSearchTrain</servlet-name>
+    <servlet-class>com.shashi.servlets.UserSearchTrain</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UserSearchTrain</servlet-name>
+    <url-pattern>/searchtrainservlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>UserAvailFwd</servlet-name>
+    <servlet-class>com.shashi.servlets.UserAvailFwd</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UserAvailFwd</servlet-name>
+    <url-pattern>/useravailfwd</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>TrainBwStnFwd</servlet-name>
+    <servlet-class>com.shashi.servlets.TrainBwStnFwd</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TrainBwStnFwd</servlet-name>
+    <url-pattern>/trainbwstnfwd</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>TrainBwStn</servlet-name>
+    <servlet-class>com.shashi.servlets.TrainBwStn</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TrainBwStn</servlet-name>
+    <url-pattern>/trainbwstn</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>UserAvailServlet</servlet-name>
+    <servlet-class>com.shashi.servlets.UserAvailServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UserAvailServlet</servlet-name>
+    <url-pattern>/useravail</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>AdminLogin</servlet-name>
+    <servlet-class>com.shashi.servlets.AdminLogin</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdminLogin</servlet-name>
+    <url-pattern>/adminlogin</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>UserRegServlet</servlet-name>
+    <servlet-class>com.shashi.servlets.UserRegServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UserRegServlet</servlet-name>
+    <url-pattern>/userreg</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>AdminLogoutServlet</servlet-name>
+    <servlet-class>com.shashi.servlets.AdminLogoutServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdminLogoutServlet</servlet-name>
+    <url-pattern>/adminlogout</url-pattern>
+  </servlet-mapping>
+  <welcome-file-list>
+    <welcome-file>UserLogin.html</welcome-file>
+  </welcome-file-list>
 </web-app>
