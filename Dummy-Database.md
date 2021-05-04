@@ -1,5 +1,5 @@
 # The SQL Database Command for the Table creation
-### Just open the sql prompt and copy and paste the following codes for dummy table
+### Just open the sql prompt login to admin or system user and copy paste the following codes for dummy table
 
 
 create user reservation identified by manager;
