@@ -3,8 +3,11 @@
 
 
 create user reservation identified by manager;
+
 grant dba to reservation;
+
 commit;
+
 connect reservation/manager;
 
 create table admin6(uname varchar2(40) primary key,name varchar2(40),
