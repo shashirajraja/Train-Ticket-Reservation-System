@@ -46,10 +46,10 @@
 - Oracle ( SQL )
 
 ### ==============S/W AND TOOLS REQUIREMENTS=====================
-- : ORACLE SQL
-- : ECLIPSE EE
-- : JAVA JDK 8+
-- : TOMCAT V8.0
+- : Oracle SQL
+- : Eclipse EE
+- : Java JDK 8+
+- : Tomcat v8.0
 
 ### Database Structure
 
@@ -59,11 +59,11 @@
 
 ### ===============DUMMY DATABASE INITIALISING=====================
 
-STEP 1: OPEN ORACLE SQL
+STEP 1: Open Oracle Sql Command Line
 
-STEP 2: LOGIN TO ADMIN OR SYSTEM USER
+STEP 2: Login to System or Admin User
 
-STEP 3 :COPY PASTE THE DUMMY SQL SCRIPT GIVEN HERE : https://github.com/shashirajraja/Train-Ticket-Reservation-System/blob/master/Dummy-Database.md
+STEP 3 :Copy paste the dummy sql script given here : https://github.com/shashirajraja/Train-Ticket-Reservation-System/blob/master/Dummy-Database.md
 	
 ### ==========IMPORTING AND RUNNING PROJECT IN ECLIPSE===============
 
@@ -71,7 +71,7 @@ STEP 1: CLICK ON FILE > IMPORT > GIT > PROJECTS FROM GIT > CLONE URI  > PASTE TH
 
 STEP 2: RIGHT CLICK ON PROJECT > BUILD PATH > CONFIGURE BUILD PATH > LIBRARIES > REMOVE AND UPDATE ANY LIBRARIES WITH RED MARK > ADD LIBRARY > JRE SYSTEM LIBRARY > NEXT > SELECT WORKSPACE DEFAULT JRE >FINISH
 
-STEP 3: RIGHT CLICK ON PROJECT > RUN AS > RUN ON SERVER > SELECT TOMCAT V8.0 > NEXT > ADD ALL > FINISH
+STEP 3: RIGHT CLICK ON PROJECT > RUN AS > RUN ON SERVER > SELECT TOMCAT V8.0 > (Select Tomcat v8.0 installation location if asked) NEXT > ADD ALL > FINISH
 
 	(OR YOU CAN JUST DOUBLE CLICK ON SERVER TAB FOR ADDING TOMCAT SERVER IF NOT ALREADY ADDED)
 
@@ -79,7 +79,7 @@ STEP 4: IN THE SERVER TAB > DOUBLE CLICK ON TOMCAT SERVER > PORTS  > CHANGE THE 
 
 STEP 5: RIGHT CLICK ON PROJECT > RUN AS > RUN ON SERVER > SELECT TOMCAT V8.0 > NEXT > ADD ALL> DONE
 
-STEP 6: CHECK THE RUNNING SITE AT  <a href="http://localhost:8083/TrainBook/">http://localhost:8083/TrainBook/</a>
+STEP 6: Check Running the Site at  <a href="http://localhost:8083/TrainBook/">http://localhost:8083/TrainBook/</a>
 
 STEP 7: Default Username and password for Admin is "admin" and "admin"
 
