@@ -45,45 +45,66 @@
 - Servlet
 - Oracle ( SQL )
 
-### ==============S/W AND TOOLS REQUIREMENTS=====================
+### ==== Software And Tools Required ======
 - : Oracle SQL
 - : Eclipse EE
 - : Java JDK 8+
 - : Tomcat v8.0
-
-### Database Structure
-
-- The Sql table creation command for the above project has been put into the file named Dummy-Database.md (https://github.com/shashirajraja/Train-Ticket-Reservation-System/blob/master/Dummy-Database.md)
-- Just Copy and paste the above file command to sql and use the dummy database
-- For Admin the default username is "admin" and password is also "admin"
-
-### ===============DUMMY DATABASE INITIALISING=====================
+- 
+### ========== Dummy Database Initialization ===========
 
 STEP 1: Open Oracle Sql Command Line
 
-STEP 2: Login to System or Admin User
+STEP 2: Login to administrator User as: ```connect <username>/<password>```
 
-STEP 3 :Copy paste the dummy sql script given here : https://github.com/shashirajraja/Train-Ticket-Reservation-System/blob/master/Dummy-Database.md
+STEP 3 :Copy paste the following SQL Query:
+
+```SQL
+create user reservation identified by manager;
+
+grant dba to reservation;
+
+commit;
+
+connect reservation/manager;
+
+create table admin6(uname varchar2(40) primary key,name varchar2(40),
+	pword varchar2(50),mail_id varchar2(60),phone_no varchar2(12));
 	
-### ==========IMPORTING AND RUNNING PROJECT IN ECLIPSE===============
+create table train6(tr_no number(10) primary key,tr_name varchar2(70),
+	from_stn varchar2(20),to_stn varchar2(20),available number(5),fare number(5));
 
-STEP 1: CLICK ON FILE > IMPORT > GIT > PROJECTS FROM GIT > CLONE URI  > PASTE THE REPOSITORY URL > NEXT > NEXT > DONE
+create table register(uname varchar2(40) primary key,pword varchar2(50),
+	fname varchar2(40),lname varchar2(40),
+	addr varchar2(100), phno varchar2(12), mailid varchar2(60));
 
-STEP 2: RIGHT CLICK ON PROJECT > BUILD PATH > CONFIGURE BUILD PATH > LIBRARIES > REMOVE AND UPDATE ANY LIBRARIES WITH RED MARK > ADD LIBRARY > JRE SYSTEM LIBRARY > NEXT > SELECT WORKSPACE DEFAULT JRE >FINISH
+insert into admin6 values('admin','admin','admin','admin@train.com','9874561230');
+insert into admin6 values('shashi','shashi','admin','shashi@train.com','98323561230');
+insert into train6 values(10101,'Jodhpur Exp','Howrah','Jodhpur',152,450);
+insert into train6 values(10102,'Mumbai Mail','Gaya','Mumbai',182,650);
+insert into register values('shashi','shashi','Shashi','Raj','Tekari, Gaya, Bihar',954745222,'shashiraj.972@gmail.com');
 
-STEP 3: RIGHT CLICK ON PROJECT > RUN AS > RUN ON SERVER > SELECT TOMCAT V8.0 > (Select Tomcat v8.0 installation location if asked) NEXT > ADD ALL > FINISH
+commit;
+```
+	
+### ====== Importing and Running the Project Through Eclipse EE ===========
+Step 0: Open Eclipse Enterprise Edition. [Install if not available]
 
-	(OR YOU CAN JUST DOUBLE CLICK ON SERVER TAB FOR ADDING TOMCAT SERVER IF NOT ALREADY ADDED)
+Step 1: Click On File > Import > Git > Projects From Git > Clone Uri  > Paste The Repository Url: ```https://github.com/shashirajraja/Train-Ticket-Reservation-System.git``` > Next > Select Master Branch > Next > Finish
 
-STEP 4: IN THE SERVER TAB > DOUBLE CLICK ON TOMCAT SERVER > PORTS  > CHANGE THE PORT NUMBER FOR HTTP/1.1 TO 8083 > CLOSE AND SAVE
+Step 2: Right Click On Project > Build Path > Configure Build Path > Libraries > Remove And Update Any Libraries With Red Mark > Finish
 
-STEP 5: RIGHT CLICK ON PROJECT > RUN AS > RUN ON SERVER > SELECT TOMCAT V8.0 > NEXT > ADD ALL> DONE
+Step 3: [Only if Tomcat v8.0 is not Configured in Eclipse]: Right Click On Project > Run As > Run On Server > Select Tomcat v8.0 > (Select Tomcat V8.0 Installation Location If Asked) Next > Add <project-name> > Finish
 
-STEP 6: Check Running the Site at  <a href="http://localhost:8083/TrainBook/">http://localhost:8083/TrainBook/</a>
+Step 4: In The Server Tab > Double Click On Tomcat Server > Ports  > Change The Port Number For Http/1.1 To 8083 > Close And Save
 
-STEP 7: Default Username and password for Admin is "admin" and "admin"
+Step 5: Right Click On Project > Run As > Run On Server > Select Tomcat V8.0 > Next > Add All> Done
 
-STEP 8: Default Username and Password for User is "shashi" and "shashi"
+Step 6: Check Running The Site At  <a Href="Http://localhost:8083/trainbook/">http://localhost:8083/trainbook/</a>
+
+Step 7: Default Username And Password For Admin Is "admin" And "admin"
+
+Step 8: Default Username And Password For User Is "shashi" And "shashi"
 
 
 
