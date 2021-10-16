@@ -8,6 +8,14 @@ import com.shashi.beans.UserBean;
 import com.shashi.utility.DBConnection;
 @SuppressWarnings("serial")
 public class AdminLogin extends HttpServlet{
+
+	/**
+	 * 
+	 * @param req
+	 * @param res
+	 * @throws IOException
+	 * @throws ServletException
+	 */
 	protected void doPost(HttpServletRequest req,HttpServletResponse res) throws IOException,ServletException
 	{
 		PrintWriter pw = res.getWriter();

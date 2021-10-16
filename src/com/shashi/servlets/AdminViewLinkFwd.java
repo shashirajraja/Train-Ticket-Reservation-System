@@ -8,6 +8,14 @@ import com.shashi.utility.DBConnection;
 import java.sql.*;
 @SuppressWarnings("serial")
 public class AdminViewLinkFwd extends HttpServlet{
+
+	/**
+	 * 
+	 * @param req
+	 * @param res
+	 * @throws IOException
+	 * @throws ServletException
+	 */
 	protected void doGet(HttpServletRequest req,HttpServletResponse res) throws IOException,ServletException
 	{
 		res.setContentType("text/html");
