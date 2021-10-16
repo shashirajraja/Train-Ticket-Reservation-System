@@ -7,6 +7,14 @@ import javax.servlet.http.*;
 import com.shashi.utility.DBConnection;
 @SuppressWarnings("serial")
 public class AdminTrainUpdate extends HttpServlet{
+
+	/**
+	 * 
+	 * @param req
+	 * @param res
+	 * @throws IOException
+	 * @throws ServletException
+	 */
 	protected void doPost(HttpServletRequest req,HttpServletResponse res) throws IOException,ServletException
 	{
 		res.setContentType("text/html");

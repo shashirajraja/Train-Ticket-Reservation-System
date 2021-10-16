@@ -4,6 +4,13 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 @SuppressWarnings("serial")
 public class AdminCancleTrainFwd extends HttpServlet{
+	/**
+	 * 
+	 * @param req
+	 * @param res
+	 * @throws IOException
+	 * @throws ServletException
+	 */
 	protected void doGet(HttpServletRequest req,HttpServletResponse res) throws IOException,ServletException
 	{
 		res.setContentType("text/html");

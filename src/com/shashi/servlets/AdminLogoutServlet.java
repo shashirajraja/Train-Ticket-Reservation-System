@@ -4,6 +4,14 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 @SuppressWarnings("serial")
 public class AdminLogoutServlet extends HttpServlet{
+
+	/**
+	 * 
+	 * @param req
+	 * @param res
+	 * @throws ServletException
+	 * @throws IOException
+	 */
 	protected void doGet(HttpServletRequest req,HttpServletResponse res) throws ServletException,IOException
 	{
 		res.setContentType("text/html");
