@@ -29,6 +29,8 @@ public class DBConnection {
 	}
 	public static Connection getCon()
 	{
+		
+		System.out.println("Inside Connection,...");
 		return con;
 	}
 }
