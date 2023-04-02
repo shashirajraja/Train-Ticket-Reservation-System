@@ -2,64 +2,62 @@ package com.shashi.beans;
 import java.io.*;
 @SuppressWarnings("serial")
 public class TransBean implements Serializable{
-	private String transId,uName,fromStn,toStn,time;
-	private long seatNo,trainNo;
-	public void setUName(String uName)
-	{
-		this.uName = uName;
+	private String transId,mailId,fromStn,toStn,time;
+	private long seatNo,trainNo, quantity;
+	private double amount;
+	public String getTransId() {
+		return transId;
 	}
-	public String getUName()
-	{
-		return uName;
-	}
-	public void setTranId(String  transId)
-	{
+	public void setTransId(String transId) {
 		this.transId = transId;
 	}
-	public void setTrainNo(long trainNo)
-	{
-		this.trainNo = trainNo;
+	public String getMailId() {
+		return mailId;
 	}
-	public void setFromStn(String  fromStn)
-	{
+	public void setMailId(String mailId) {
+		this.mailId = mailId;
+	}
+	public String getFromStn() {
+		return fromStn;
+	}
+	public void setFromStn(String fromStn) {
 		this.fromStn = fromStn;
 	}
-	public void setToStn(String toStn)
-	{
+	public String getToStn() {
+		return toStn;
+	}
+	public void setToStn(String toStn) {
 		this.toStn = toStn;
 	}
-	public void setTime(String time)
-	{
+	public String getTime() {
+		return time;
+	}
+	public void setTime(String time) {
 		this.time = time;
 	}
-	public void setSeats(long seatNo)
-	{
+	public long getSeatNo() {
+		return seatNo;
+	}
+	public void setSeatNo(long seatNo) {
 		this.seatNo = seatNo;
 	}
-
-	public String getTranId()
-	{
-		return transId  ;
+	public long getTrainNo() {
+		return trainNo;
 	}
-	public long getTrainNo()
-	{
-		return trainNo ;
+	public void setTrainNo(long trainNo) {
+		this.trainNo = trainNo;
 	}
-	public String getFromStn()
-	{
-		return fromStn  ;
+	public long getQuantity() {
+		return quantity;
 	}
-	public String getToStn()
-	{
-		return toStn  ;
+	public void setQuantity(long quantity) {
+		this.quantity = quantity;
 	}
-	public String getTime()
-	{
-		return time  ;
+	public double getAmount() {
+		return amount;
 	}
-	public long getSeats()
-	{
-		return seatNo ;
+	public void setAmount(double amount) {
+		this.amount = amount;
 	}
-
+	
 }

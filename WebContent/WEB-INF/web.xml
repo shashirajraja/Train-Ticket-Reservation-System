@@ -288,6 +288,39 @@
     <servlet-name>AdminLogoutServlet</servlet-name>
     <url-pattern>/adminlogout</url-pattern>
   </servlet-mapping>
+  
+  <!-- Error Handlers -->
+	<servlet>
+		<servlet-name>ErrorHandlerServlet</servlet-name>
+		<servlet-class>com.shashi.servlets.ErrorHandlerServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ErrorHandlerServlet</servlet-name>
+		<url-pattern>/error</url-pattern>
+	</servlet-mapping>
+	<!-- error-code related error pages -->
+	<error-page>
+		<error-code>404</error-code>
+		<location>/error</location>
+	</error-page>
+	<error-page>
+		<error-code>405</error-code>
+		<location>/error</location>
+	</error-page>
+	
+	<!-- exception-type related error pages -->
+	<error-page>
+		<exception-type>
+			javax.servlet.ServletException
+		</exception-type>
+		<location>/error</location>L̥
+	</error-page>
+	<!-- exception-type related all errors -->
+	<error-page>
+		<exception-type>java.lang.Throwable</exception-type>
+		<location>/error</location>
+	</error-page>
+	
   <welcome-file-list>
     <welcome-file>UserLogin.html</welcome-file>
   </welcome-file-list>

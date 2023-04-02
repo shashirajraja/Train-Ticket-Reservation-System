@@ -1,29 +1,74 @@
 ### Just open the Oracle sql command prompt and login to administrator user and copy paste the following codes for creating dummy database:
 
 ```SQL
-create user reservation identified by manager;
+ALTER SESSION SET "_ORACLE_SCRIPT"=TRUE;  
 
-grant dba to reservation;
+CREATE USER RESERVATION IDENTIFIED BY MANAGER;
 
-commit;
+GRANT DBA TO RESERVATION;
 
-connect reservation/manager;
+COMMIT;
 
-create table admin6(uname varchar2(40) primary key,name varchar2(40),
-	pword varchar2(50),mail_id varchar2(60),phone_no varchar2(12));
-	
-create table train6(tr_no number(10) primary key,tr_name varchar2(70),
-	from_stn varchar2(20),to_stn varchar2(20),available number(5),fare number(5));
+CONNECT RESERVATION/MANAGER;
 
-create table register(uname varchar2(40) primary key,pword varchar2(50),
-	fname varchar2(40),lname varchar2(40),
-	addr varchar2(100), phno varchar2(12), mailid varchar2(60));
+CREATE TABLE "RESERVATION"."CUSTOMER" 
+(	
+"MAILID" VARCHAR2(40) PRIMARY KEY, 
+"PWORD" VARCHAR2(20) NOT NULL, 
+"FNAME" VARCHAR2(20) NOT NULL, 
+"LNAME" VARCHAR2(20), 
+"ADDR" VARCHAR2(100), 
+"PHNO" NUMBER(12) NOT NULL
+);
 
-insert into admin6 values('admin','admin','admin','admin@train.com','9874561230');
-insert into admin6 values('shashi','shashi','admin','shashi@train.com','98323561230');
-insert into train6 values(10101,'Jodhpur Exp','Howrah','Jodhpur',152,450);
-insert into train6 values(10102,'Mumbai Mail','Gaya','Mumbai',182,650);
-insert into register values('shashi','shashi','Shashi','Raj','Tekari, Gaya, Bihar',954745222,'shashiraj.972@gmail.com');
+CREATE TABLE "RESERVATION"."ADMIN"
+(	
+"MAILID" VARCHAR2(40) PRIMARY KEY, 
+"PWORD" VARCHAR2(20) NOT NULL, 
+"FNAME" VARCHAR2(20) NOT NULL, 
+"LNAME" VARCHAR2(20), 
+"ADDR" VARCHAR2(100), 
+"PHNO" NUMBER(12) NOT NULL
+);
 
-commit;
+
+CREATE TABLE "RESERVATION"."TRAIN" 
+(	
+"TR_NO" NUMBER(10) PRIMARY KEY, 
+"TR_NAME" VARCHAR2(70) NOT NULL, 
+"FROM_STN" VARCHAR2(20) NOT NULL, 
+"TO_STN" VARCHAR2(20) NOT NULL, 
+"SEATS" NUMBER(4) NOT NULL, 
+"FARE" NUMBER(6,2) NOT NULL 
+);
+
+CREATE TABLE "RESERVATION"."HISTORY" 
+(	
+"TRANSID" VARCHAR2(30) PRIMARY KEY, 
+"MAILID" VARCHAR2(40) REFERENCES "RESERVATION"."CUSTOMER"(MAILID), 
+"TR_NO" NUMBER(10),
+"DATE" DATE,
+"FROM_STN" VARCHAR2(20) NOT NULL, 
+"TO_STN" VARCHAR2(20) NOT NULL, 
+"SEATS" NUMBER(3) NOT NULL, 
+"AMOUNT" NUMBER(8,2) NOT NULL
+);
+
+COMMIT;
+
+INSERT INTO RESERVATION.ADMIN VALUES('admin@demo.com','admin','System','Admin','Demo Address 123 colony','9874561230');
+INSERT INTO RESERVATION.CUSTOMER VALUES('shashi@demo.com','shashi','Shashi','Raj','Kolkata, West Bengal',954745222);
+
+INSERT INTO RESERVATION.TRAIN VALUES(10001,'JODHPUR EXP','HOWRAH','JODHPUR', 152, 490.50);
+INSERT INTO RESERVATION.TRAIN VALUES(10002,'YAMUNA EXP','GAYA','DELHI', 52, 550.50);
+INSERT INTO RESERVATION.TRAIN VALUES(10003,'NILANCHAL EXP','GAYA','HOWRAH', 92, 451);
+INSERT INTO RESERVATION.TRAIN VALUES(10004,'JAN SATABDI EXP','RANCHI','PATNA', 182, 550);
+INSERT INTO RESERVATION.TRAIN VALUES(10005,'GANGE EXP','MUMBAI','KERALA', 12, 945);
+INSERT INTO RESERVATION.TRAIN VALUES(10006,'GARIB RATH EXP','PATNA','DELHI', 1, 1450.75);
+
+INSERT INTO RESERVATION.HISTORY VALUES('BBC374-NSDF-4673','shashi@demo.com',10001,TO_DATE('02-FEB-2024'), 'HOWRAH', 'JODHPUR', 2, 981);
+INSERT INTO RESERVATION.HISTORY VALUES('BBC375-NSDF-4675','shashi@demo.com',10004,TO_DATE('12-JAN-2024'), 'RANCHI', 'PATNA', 1, 550);
+INSERT INTO RESERVATION.HISTORY VALUES('BBC373-NSDF-4674','shashi@demo.com',10006,TO_DATE('22-JULY-2024'), 'PATNA', 'DELHI', 3, 4352.25);
+
+COMMIT;
 ```
