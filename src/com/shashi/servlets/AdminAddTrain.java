@@ -2,26 +2,32 @@ package com.shashi.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.http.Cookie;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.shashi.beans.TrainBean;
 import com.shashi.beans.TrainException;
-import com.shashi.utility.DBUtil;
+import com.shashi.constant.ResponseCode;
+import com.shashi.constant.UserRole;
+import com.shashi.service.TrainService;
+import com.shashi.service.impl.TrainServiceImpl;
+import com.shashi.utility.TrainUtil;
 
+@WebServlet("/adminaddtrain")
 public class AdminAddTrain extends HttpServlet {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+
+	private TrainService trainService = new TrainServiceImpl();
+
 	/**
 	 * 
 	 * @param req
@@ -32,39 +38,29 @@ public class AdminAddTrain extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
 		res.setContentType("text/html");
 		PrintWriter pw = res.getWriter();
-		Cookie ck[] = req.getCookies();
-		if (ck != null) {
-			String uName = ck[0].getValue();
-			//String pWord = ck[1].getValue();
-			if (!uName.equals("") || uName != null) {
-				try {
-					Connection con = DBUtil.getCon();
-					PreparedStatement ps = con.prepareStatement("insert into train values(?,?,?,?,?,?)");
-					ps.setLong(1, Long.parseLong(req.getParameter("trainno")));
-					ps.setString(2, req.getParameter("trainname").toUpperCase());
-					ps.setString(3, req.getParameter("fromstation").toUpperCase());
-					ps.setString(4, req.getParameter("tostation").toUpperCase());
-					ps.setLong(5, Long.parseLong(req.getParameter("available")));
-					ps.setDouble(6, Double.parseDouble(req.getParameter("fare")));
-					ResultSet rs = ps.executeQuery();
-					if (rs.next()) {
-						RequestDispatcher rd = req.getRequestDispatcher("AddTrains.html");
-						rd.include(req, res);
-						pw.println("<div class='tab'><p1 class='menu'>Train Added Successfully!</p1></div>");
-					} else {
-						RequestDispatcher rd = req.getRequestDispatcher("AddTrains.html");
-						rd.include(req, res);
-						pw.println("<div class='tab'><p1 class='menu'>Error in filling the train Detail</p1></div>");
-					}
-				} catch (Exception e) {
-					throw new TrainException(422, this.getClass().getName() + "_FAILED", e.getMessage());
-				}
+		TrainUtil.validateUserAuthorization(req, UserRole.ADMIN);
+		try {
+			TrainBean train = new TrainBean();
+			train.setTr_no(Long.parseLong(req.getParameter("trainno")));
+			train.setTr_name(req.getParameter("trainname").toUpperCase());
+			train.setFrom_stn(req.getParameter("fromstation").toUpperCase());
+			train.setTo_stn(req.getParameter("tostation").toUpperCase());
+			train.setSeats(Integer.parseInt(req.getParameter("available")));
+			train.setFare(Double.parseDouble(req.getParameter("fare")));
+			String message = trainService.addTrain(train);
+			if (ResponseCode.SUCCESS.toString().equalsIgnoreCase(message)) {
+				RequestDispatcher rd = req.getRequestDispatcher("AddTrains.html");
+				rd.include(req, res);
+				pw.println("<div class='tab'><p1 class='menu'>Train Added Successfully!</p1></div>");
+			} else {
+				RequestDispatcher rd = req.getRequestDispatcher("AddTrains.html");
+				rd.include(req, res);
+				pw.println("<div class='tab'><p1 class='menu'>Error in filling the train Detail</p1></div>");
 			}
-		} else {
-			RequestDispatcher rd = req.getRequestDispatcher("AdminLogin.html");
-			rd.include(req, res);
-			pw.println("<div class='tab'><p1 class='menu'>Please Login first !</p1></div>");
+		} catch (Exception e) {
+			throw new TrainException(422, this.getClass().getName() + "_FAILED", e.getMessage());
 		}
+
 	}
 
 }

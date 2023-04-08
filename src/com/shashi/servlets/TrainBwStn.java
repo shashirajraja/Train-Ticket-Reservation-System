@@ -2,69 +2,64 @@ package com.shashi.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.http.Cookie;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.shashi.beans.TrainBean;
 import com.shashi.beans.TrainException;
-import com.shashi.utility.DBUtil;
+import com.shashi.constant.UserRole;
+import com.shashi.service.TrainService;
+import com.shashi.service.impl.TrainServiceImpl;
+import com.shashi.utility.TrainUtil;
 
 @SuppressWarnings("serial")
+@WebServlet("/trainbwstn")
 public class TrainBwStn extends HttpServlet {
+	private TrainService trainService = new TrainServiceImpl();
+
 	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
 		res.setContentType("text/html");
 		PrintWriter pw = res.getWriter();
-		Cookie ck[] = req.getCookies();
-		if (ck != null) {
-			String uName = ck[0].getValue();
-//			String pWord = ck[1].getValue();
-			if (!uName.equals("") || uName != null) {
-				try {
-					Connection con = DBUtil.getCon();
-					PreparedStatement ps = con.prepareStatement("Select * from train where from_stn LIKE UPPER(?) and to_stn LIKE UPPER(?)");
-					ps.setString(1, "%" + req.getParameter("fromstation") + "%");
-					ps.setString(2, "%" + req.getParameter("tostation") + "%");
-					ResultSet rs = ps.executeQuery();
-					if (rs.next()) {
-						RequestDispatcher rd = req.getRequestDispatcher("UserHome.html");
-						rd.include(req, res);
-						pw.println("<div class='tab'>" + "		<p1 class='menu'>" + "	Hello " + uName
-								+ " ! Welcome to our new NITRTC Website" + "		</p1>" + "	</div>");
-						pw.println("<div class='main'><p1 class='menu'>Trains BetWeen Station "
-								+ req.getParameter("fromstation") + " and " + req.getParameter("tostation")
-								+ "</p1></div>");
-						pw.println("<div class='tab'><table><tr><th>Train Name</th><th>Train No</th>"
-								+ "<th>From Stn</th><th>To Stn</th><th>Seats</th><th>Fare (INR)</th></tr>");
-						do {
-							pw.println("" + "<tr><td>" + rs.getString("tr_name") + "</td>" + "<td>"
-									+ rs.getLong("tr_no") + "</td>" + "<td>" + rs.getString("from_Stn") + "</td>"
-									+ "<td>" + rs.getString("to_Stn") + "</td>" + "<td>" + rs.getLong("seats")
-									+ "</td>" + "<td>" + rs.getLong("fare") + " RS</td></tr>");
-						} while (rs.next());
-						pw.println("</table></div>");
-					} else {
-						RequestDispatcher rd = req.getRequestDispatcher("TrainBwStn.html");
-						rd.include(req, res);
-						pw.println("<div class='tab'><p1 class='menu'>There are no trains Between "
-								+ req.getParameter("fromstation") + " and " + req.getParameter("tostation")
-								+ "</p1></div>");
-					}
-				} catch (Exception e) {
-					throw new TrainException(422, this.getClass().getName() + "_FAILED", e.getMessage());
-				}
+		TrainUtil.validateUserAuthorization(req, UserRole.CUSTOMER);
+		try {
+			String fromStation = req.getParameter("fromstation");
+			String toStation = req.getParameter("tostation");
+			List<TrainBean> trains = trainService.getTrainsBetweenStations(fromStation, toStation);
+			if (trains != null && !trains.isEmpty()) {
+				RequestDispatcher rd = req.getRequestDispatcher("UserHome.html");
+				rd.include(req, res);
+				pw.println("<div class='main'><p1 class='menu'>Trains BetWeen Station "
+						+ req.getParameter("fromstation") + " and " + req.getParameter("tostation") + "</p1></div>");
+				pw.println("<div class='tab'><table><tr><th>Train Name</th><th>Train No</th>"
+						+ "<th>From Stn</th><th>To Stn</th><th>Time</th><th>Seats</th><th>Fare (INR)</th><th>Action</th></tr>");
+				for (TrainBean train : trains) {
+					int hr = (int) (Math.random() * 24);
+					int min = (int) (Math.random() * 60);
+					String time = (hr < 10 ? ("0" + hr) : hr) + ":" + ((min < 10) ? "0" + min : min);
 
+					pw.println("" + "<tr><td>" + train.getTr_name() + "</td>" + "<td>" + train.getTr_no() + "</td>"
+							+ "<td>" + train.getFrom_stn() + "</td>" + "<td>" + train.getTo_stn() + "</td>" + "<td>"
+							+ time + "</td>" + "<td>" + train.getSeats() + "</td>" + "<td>" + train.getFare()
+							+ " RS</td><td><a href='booktrainbyref?trainNo=" + train.getTr_no() + "&fromStn="
+							+ train.getFrom_stn() + "&toStn=" + train.getTo_stn()
+							+ "'><div class='red'>Book Now</div></a></td>" + "</tr>");
+				}
+				pw.println("</table></div>");
+			} else {
+				RequestDispatcher rd = req.getRequestDispatcher("TrainBwStn.html");
+				rd.include(req, res);
+				pw.println("<div class='tab'><p1 class='menu'>There are no trains Between "
+						+ req.getParameter("fromstation") + " and " + req.getParameter("tostation") + "</p1></div>");
 			}
-		} else {
-			RequestDispatcher rd = req.getRequestDispatcher("UserLogin.html");
-			rd.include(req, res);
-			pw.println("<div class='tab'><p1 class='menu'>Please Login first !</p1></div>");
+		} catch (Exception e) {
+			throw new TrainException(422, this.getClass().getName() + "_FAILED", e.getMessage());
 		}
+
 	}
 }

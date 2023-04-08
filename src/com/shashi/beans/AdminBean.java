@@ -2,13 +2,17 @@ package com.shashi.beans;
 
 import java.io.Serializable;
 
-@SuppressWarnings("serial")
 public class AdminBean implements Serializable {
-	private String pWord, fName, lName, addR, mailId;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private String fName;
+	private String lName;
+	private String pWord;
+	private String addR;
+	private String mailId;
 	private long phNo;
-
-	public AdminBean() {
-	}
 
 	public void setPWord(String pWord) {
 		this.pWord = pWord;

@@ -11,12 +11,9 @@ import com.shashi.constant.ResponseCode;
 public class DBUtil {
 	private static Connection con;
 
-	private DBUtil() {
-	};
-
 	static {
 
-		ResourceBundle rb = ResourceBundle.getBundle("com.shashi.utility.application");
+		ResourceBundle rb = ResourceBundle.getBundle("application");
 
 		try {
 			Class.forName(rb.getString("driverName"));
@@ -37,7 +34,7 @@ public class DBUtil {
 		}
 	}
 
-	public static Connection getCon() throws TrainException {
+	public static Connection getConnection() throws TrainException {
 		if (con == null)
 			throw new TrainException(ResponseCode.DATABASE_CONNECTION_FAILURE);
 		return con;

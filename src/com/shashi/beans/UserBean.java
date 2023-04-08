@@ -1,66 +1,66 @@
 package com.shashi.beans;
-import java.io.*;
-import java.sql.Blob;
-@SuppressWarnings("serial")
-public class UserBean implements Serializable{
-	private String pWord,fName,lName,addR,mailId;
+
+import java.io.Serializable;
+
+public class UserBean implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	private String fName;
+	private String lName;
+	private String pWord;
+	private String addR;
+	private String mailId;
 	private long phNo;
-	private Blob photo;
-	public UserBean() {}
-	public void setPWord(String pWord)
-	{
+
+	public void setPWord(String pWord) {
 		this.pWord = pWord;
 	}
-	public String getPWord()
-	{
+
+	public String getPWord() {
 		return pWord;
 	}
-	public void setFName(String fName)
-	{
+
+	public void setFName(String fName) {
 		this.fName = fName;
 	}
+
 	public String getFName() {
 		return fName;
 	}
-	public void setLName(String lName)
-	{
+
+	public void setLName(String lName) {
 		this.lName = lName;
 	}
-	public String getLName()
-	{
+
+	public String getLName() {
 		return lName;
 	}
-	public void setAddr(String addR)
-	{
+
+	public void setAddr(String addR) {
 		this.addR = addR;
 	}
-	public String getAddr()
-	{
+
+	public String getAddr() {
 		return addR;
 	}
-	public void setMailId(String mailId)
-	{
+
+	public void setMailId(String mailId) {
 		this.mailId = mailId;
 	}
-	public String getMailId()
-	{
+
+	public String getMailId() {
 		return mailId;
 	}
-	public void setPhNo(long phNo)
-	{
+
+	public void setPhNo(long phNo) {
 		this.phNo = phNo;
 	}
-	public long getPhNo()
-	{
+
+	public long getPhNo() {
 		return phNo;
 	}
-	public void setPhoto(Blob photo)
-	{
-		this.photo = photo;
-	}
-	public Blob getPhoto()
-	{
-		return photo;
-	}
-	
+
 }

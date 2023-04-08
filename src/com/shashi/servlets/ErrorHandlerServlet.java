@@ -61,10 +61,19 @@ public class ErrorHandlerServlet extends HttpServlet {
 		System.out.println("Error Message: " + errorMessage);
 		System.out.println("=============================");
 
-		RequestDispatcher rd = req.getRequestDispatcher("error.html");
-		rd.include(req, res);
-		pw.println("<div style='margin-top:20%; text-align:center;'>\r\n" + "	<p class=\"menu\" style='color:red'>"
-				+ errorCode + "</p><br>\r\n" + "	<p class=\"menu\">" + errorMessage + "</p>\r\n" + "  </div>");
+		if (statusCode == 401) {
+			RequestDispatcher rd = req.getRequestDispatcher("UserLogin.html");
+			rd.include(req, res);
+			pw.println("<div class='tab'><p1 class='menu'>" + errorMessage + "</p1></div>");
+
+		} else {
+			RequestDispatcher rd = req.getRequestDispatcher("error.html");
+			rd.include(req, res);
+			pw.println("<div style='margin-top:20%; text-align:center;'>\r\n"
+					+ "	<p class=\"menu\" style='color:red'>" + errorCode + "</p><br>\r\n" + "	<p class=\"menu\">"
+					+ errorMessage + "</p>\r\n" + "  </div>");
+
+		}
 
 	}
 
