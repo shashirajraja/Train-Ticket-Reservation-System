@@ -85,6 +85,17 @@ public class BookTrains extends HttpServlet {
 						pw.println("<div class='tab'><p class='menu green'>" + seat
 								+ " Seats Booked Successfully!<br/><br/> Your Transaction Id is: "
 								+ transaction.getTransId() + "</p>" + "</div>");
+						pw.println("<div class='tab'>" + "<p class='menu'>" + "<table>" + "<tr><td>PNR No: </td><td colspan='3' style='color:blue;'>"
+								+ transaction.getTransId() + "</td></tr><tr><td>Train Name: </td><td>"
+								+ train.getTr_name() + "</td><td>Train No: </td><td>" + transaction.getTr_no()
+								+ "</td></tr><tr><td>Booked From: </td><td>" + transaction.getFrom_stn()
+								+ "</td><td>To Station: </td><td>" + transaction.getTo_stn() + "</td></tr>"
+								+ "<tr><td>Date Of Journey:</td><td>" + transaction.getDate()
+								+ "</td><td>Time(HH:MM):</td><td>11:23</td></tr><tr><td>Passangers: </td><td>"
+								+ transaction.getSeats() + "</td><td>Class: </td><td>" + req.getParameter("class")
+								+ "</td></tr>"
+								+ "<tr><td>Booking Status: </td><td style='color:green;'>CNF/S10/35</td><td>Amount Paid:</td><td>&#8377; "
+								+ transaction.getAmount() + "</td></tr>" + "</table>" + "</p></div>");
 
 					} else {
 						pw.println(

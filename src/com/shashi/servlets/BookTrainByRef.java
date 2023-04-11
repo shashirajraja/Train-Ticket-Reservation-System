@@ -38,7 +38,7 @@ public class BookTrainByRef extends HttpServlet {
 				+ "<input type='date' name='journeydate' value='" + LocalDate.now() + "'></td>"
 				+ "<td>No of Seats:</td><td><input type='number' name='seats' value='" + seat + "'></td></tr>"
 				+ "<tr><td>Select Class</td><td>" + "<select name='class'  required>"
-				+ "<option value='SL'>Sleeper(SL)</option><option value='2S'>Second Sitting(2S)</option><option value='AC1'>AC First Class(1A)</option><option value='AC2'>AC 2 Tier(2A)</option>"
+				+ "<option value='Sleeper(SL)'>Sleeper(SL)</option><option value='Second Sitting(2S)'>Second Sitting(2S)</option><option value='AC First Class(1A)'>AC First Class(1A)</option><option value='AC 2 Tier(2A)'>AC 2 Tier(2A)</option>"
 				+ "</select>" + "</td>" + "<td>Berth Preference</td><td>"
 				+ "<select name='berth'><option value='NO'>No Preference</option><option value='LB'>Lower Berth(LB)</option><option value='UB'>Lower Berth(UB)</option><option value='C'>Cabin</option></select>"
 				+ "</td></tr>" + "</table></div>"
