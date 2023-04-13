@@ -144,7 +144,11 @@ public class UserServiceImpl implements UserService {
 			}
 			ps.close();
 		} catch (SQLException | TrainException e) {
-			responseCode += " : " + e.getMessage();
+			if (e.getMessage().toUpperCase().contains("ORA-00001")) {
+				responseCode += " : " + "User With Id: " + customer.getMailId() + " is already registered ";
+			} else {
+				responseCode += " : " + e.getMessage();
+			}
 		}
 		return responseCode;
 	}

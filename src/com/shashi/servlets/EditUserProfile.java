@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -22,15 +21,14 @@ public class EditUserProfile extends HttpServlet {
 		res.setContentType("text/html");
 		PrintWriter pw = res.getWriter();
 		TrainUtil.validateUserAuthorization(req, UserRole.CUSTOMER);
-		
-		ServletContext sct = req.getServletContext();
-		UserBean ub = (UserBean) sct.getAttribute(UserRole.CUSTOMER.toString());
+
+		UserBean ub = TrainUtil.getCurrentCustomer(req);
 		RequestDispatcher rd = req.getRequestDispatcher("UserHome.html");
 		rd.include(req, res);
 		pw.println("<div class='tab'>" + "		<p1 class='menu'>" + "	Hello " + TrainUtil.getCurrentUserName(req)
 				+ " ! Welcome to our new NITRTC Website" + "		</p1>" + "	</div>");
-		pw.println("<div class='main'><p1 class='menu'><a href='viewuserprofile'>view Profile</a></p1>"
-				+ "<p1 class='menu'><a href='edituserprofile'>Edit Profile</a></p1>"
+		pw.println("<div class='main'><p1 class='menu'><a href='viewuserprofile'>View Profile</a></p1>&nbsp;"
+				+ "<p1 class='menu'><a href='edituserprofile'>Edit Profile</a></p1>&nbsp;"
 				+ "<p1 class='menu'><a href='changeuserpassword'>Change Password</a></p1>" + "</div>");
 		pw.println("<div class='tab'>Profile Update</div>");
 		pw.println("<div class='tab'>" + "<table><form action='updateuserprofile' method='post'>"

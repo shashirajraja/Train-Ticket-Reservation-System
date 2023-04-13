@@ -40,6 +40,11 @@ public class UserRegServlet extends HttpServlet {
 				rd.include(req, res);
 				pw.println("<div class='tab'><p1 class='menu'>User Registered Successfully !</p1></div>");
 
+			} else {
+				RequestDispatcher rd = req.getRequestDispatcher("UserRegister.html");
+				rd.include(req, res);
+				pw.println("<div class='tab'><p1 class='menu'>" + message + "</p1></div>");
+
 			}
 
 		} catch (Exception e) {
