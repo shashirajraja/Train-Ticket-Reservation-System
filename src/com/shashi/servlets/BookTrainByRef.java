@@ -31,7 +31,7 @@ public class BookTrainByRef extends HttpServlet {
 		rd.include(req, res);
 		pw.println("<div class='main'><p1 class='menu'>Your Ticket Booking Information</p1></div>");
 
-		pw.println("<div class='tab'>" + "<form action='booktrains' method='post'>" + "<table>"
+		pw.println("<div class='tab'>" + "<form action='payment' method='post'>" + "<table>"
 				+ "<tr><td>USER ID:</td><td>" + emailId + "</td>" + "<td>Train NO:</td><td>" + trainNo + "</td></tr>"
 				+ "<tr><td>From Station:</td><td>" + fromStn + "</td>" + "<td>To Station :</td><td>" + toStn + "</tr>"
 				+ "<tr><td>Journey Date:</td><td>" + "<input type='hidden' name='trainnumber' value='" + trainNo + "'>"

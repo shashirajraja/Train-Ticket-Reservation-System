@@ -2,11 +2,11 @@ package com.shashi.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -39,24 +39,23 @@ public class BookTrains extends HttpServlet {
 		RequestDispatcher rd = req.getRequestDispatcher("UserHome.html");
 		rd.include(req, res);
 
-		int seat = Integer.parseInt(req.getParameter("seats"));
-		String trainNo = req.getParameter("trainnumber");
-		String journeyDate = req.getParameter("journeydate");
+		ServletContext sct = req.getServletContext();
 
-		String userMailId = TrainUtil.getCurrentUserEmail(req);
-
-		SimpleDateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd");
-		SimpleDateFormat outputFormat = new SimpleDateFormat("dd-MMM-yyyy");
-		java.util.Date utilDate;
-		String date = LocalDate.now().toString();
 		try {
+			int seat = (int) sct.getAttribute("seats");
+			String trainNo = (String) sct.getAttribute("trainnumber");
+			String journeyDate = (String) sct.getAttribute("journeydate");
+			String seatClass = (String) sct.getAttribute("class");
+
+			String userMailId = TrainUtil.getCurrentUserEmail(req);
+
+			SimpleDateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd");
+			SimpleDateFormat outputFormat = new SimpleDateFormat("dd-MMM-yyyy");
+			java.util.Date utilDate;
+			String date = LocalDate.now().toString();
 			utilDate = inputFormat.parse(journeyDate);
 			date = outputFormat.format(utilDate);
 
-		} catch (ParseException e1) {
-			e1.printStackTrace();
-		}
-		try {
 			TrainBean train = trainService.getTrainById(trainNo);
 
 			if (train != null) {
@@ -85,15 +84,15 @@ public class BookTrains extends HttpServlet {
 						pw.println("<div class='tab'><p class='menu green'>" + seat
 								+ " Seats Booked Successfully!<br/><br/> Your Transaction Id is: "
 								+ transaction.getTransId() + "</p>" + "</div>");
-						pw.println("<div class='tab'>" + "<p class='menu'>" + "<table>" + "<tr><td>PNR No: </td><td colspan='3' style='color:blue;'>"
-								+ transaction.getTransId() + "</td></tr><tr><td>Train Name: </td><td>"
-								+ train.getTr_name() + "</td><td>Train No: </td><td>" + transaction.getTr_no()
+						pw.println("<div class='tab'>" + "<p class='menu'>" + "<table>"
+								+ "<tr><td>PNR No: </td><td colspan='3' style='color:blue;'>" + transaction.getTransId()
+								+ "</td></tr><tr><td>Train Name: </td><td>" + train.getTr_name()
+								+ "</td><td>Train No: </td><td>" + transaction.getTr_no()
 								+ "</td></tr><tr><td>Booked From: </td><td>" + transaction.getFrom_stn()
 								+ "</td><td>To Station: </td><td>" + transaction.getTo_stn() + "</td></tr>"
 								+ "<tr><td>Date Of Journey:</td><td>" + transaction.getDate()
 								+ "</td><td>Time(HH:MM):</td><td>11:23</td></tr><tr><td>Passangers: </td><td>"
-								+ transaction.getSeats() + "</td><td>Class: </td><td>" + req.getParameter("class")
-								+ "</td></tr>"
+								+ transaction.getSeats() + "</td><td>Class: </td><td>" + seatClass + "</td></tr>"
 								+ "<tr><td>Booking Status: </td><td style='color:green;'>CNF/S10/35</td><td>Amount Paid:</td><td>&#8377; "
 								+ transaction.getAmount() + "</td></tr>" + "</table>" + "</p></div>");
 
@@ -112,6 +111,10 @@ public class BookTrains extends HttpServlet {
 			throw new TrainException(422, this.getClass().getName() + "_FAILED", e.getMessage());
 		}
 
+		sct.removeAttribute("seat");
+		sct.removeAttribute("trainNo");
+		sct.removeAttribute("journeyDate");
+		sct.removeAttribute("class");
 	}
 
 }
