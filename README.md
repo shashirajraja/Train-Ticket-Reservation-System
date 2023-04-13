@@ -1,6 +1,6 @@
 # TrainBooking Website
-- Youtube video for local setup of similar project: https://www.youtube.com/watch?v=mLFPodZO8Iw&t=8s
-- Live Url: https://traintickets.herokuapp.com <br>
+- Youtube video for local setup of similar project: https://www.youtube.com/watch?v=mLFPodZO8Iw
+<!-- - Live Url: https://traintickets.herokuapp.com <br>  -->
 - Login Credentials: admin/admin
 
 ### About:
@@ -58,22 +58,25 @@ This project is about the Train-Ticket-Reservation-System which is used to view 
 - 
 ### ========== Dummy Database Initialization ===========
 
-STEP 1: Open Oracle Sql Command Line
+STEP 1: Open SQL Plus OR SQL Developer
 
-STEP 2: Login to administrator User as: ```connect <username>/<password>```
+STEP 2: Login and connect to database using administrator username and password
 
-STEP 3 :Copy paste the following SQL Query:
+STEP 3 :Execute the below command first to create a new user:
 
 ```SQL
+
 ALTER SESSION SET "_ORACLE_SCRIPT"=TRUE;  
-
 CREATE USER RESERVATION IDENTIFIED BY MANAGER;
-
 GRANT DBA TO RESERVATION;
-
 COMMIT;
-
 CONNECT RESERVATION/MANAGER;
+
+```
+NOTE: If the above command fails for alter session issues, try to remove first line and then execute it.
+
+STEP 4: Now execute the below sql query in same terminal
+```SQL
 
 CREATE TABLE "RESERVATION"."CUSTOMER" 
 (	
