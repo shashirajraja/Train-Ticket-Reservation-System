@@ -139,6 +139,15 @@ INSERT INTO RESERVATION.HISTORY VALUES('BBC373-NSDF-4674','shashi@demo.com',1000
 
 COMMIT;
 ```
+STEP 5: Now Execute the below query one by one to check if the tables are created successfully
+```SQL
+SELECT * FROM ADMIN;
+SELECT * FROM CUSTOMER;
+SELECT * FROM TRAIN;
+SELECT * FROM HISTORY;
+
+```
+Note: If any of the above commands fails, please try to fix it first and then proceed to next step
 	
 ### ====== Importing and Running the Project Through Eclipse EE ===========
 Step 0: Open Eclipse Enterprise Edition. [Install if not available]
