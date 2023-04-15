@@ -173,44 +173,40 @@ Step 8: Default Username And Password For User Is "shashi@demo.com" And "shashi"
 ### The Screenshots of some of the  webPages of this project are Here:
 
 1. Login Page
-<img src="https://github.com/shashirajraja/Train-Ticket-Reservation-System/blob/master/Screenshots/login.png" width="100%">
-
+<img width="946" alt="image" src="https://user-images.githubusercontent.com/34605595/232219369-85b55a1d-6640-4821-941a-dcca08036fbe.png">
 
 2. Register New User
-<img src="https://github.com/shashirajraja/Train-Ticket-Reservation-System/blob/master/Screenshots/registeruser.png" width="100%">
+<img width="953" alt="image" src="https://user-images.githubusercontent.com/34605595/232219485-2b00949a-be20-44f7-b6c1-107213221f94.png">
 
+3. User Profile
+<img width="960" alt="image" src="https://user-images.githubusercontent.com/34605595/232219729-2720e50f-e14b-4253-831a-85c59e3054b3.png">
 
-3. View Profile
-<img src="https://github.com/shashirajraja/Train-Ticket-Reservation-System/blob/master/Screenshots/viewprofile.png" width="100%">
+4. Search Trains Between Stations
+<img width="952" alt="image" src="https://user-images.githubusercontent.com/34605595/232220357-54b634d6-afae-427c-b3af-57b372b70906.png">
 
+5. View Trains
+<img width="949" alt="image" src="https://user-images.githubusercontent.com/34605595/232219905-983eeefe-977b-40ad-a695-4ec577272dcc.png">
 
-4. View and Book Trains
-<img src="https://github.com/shashirajraja/Train-Ticket-Reservation-System/blob/master/Screenshots/Search.png" width="100%">
+7. Book Trains
+<img width="960" alt="image" src="https://user-images.githubusercontent.com/34605595/232220107-415b251f-90b9-4e70-aff8-e94d370927f6.png">
 
+8. Payment Gateway
+<img width="946" alt="image" src="https://user-images.githubusercontent.com/34605595/232220744-351c2c6d-e1f6-49ad-a11b-7680aa63dbe3.png">
 
-5. Add Trains By Admin
-<img src="https://github.com/shashirajraja/Train-Ticket-Reservation-System/blob/master/Screenshots/addtrains.png" width="100%">
+9. Booked Ticket Information
+<img width="947" alt="image" src="https://user-images.githubusercontent.com/34605595/232220935-654bda38-cbde-4203-84b8-3078a32ac6ec.png">
 
+10. Ticket Booking History
+<img width="946" alt="image" src="https://user-images.githubusercontent.com/34605595/232220491-3e7996cb-a54c-4375-a35a-6ab1d211a001.png">
 
-6. Change Password
-<img src="https://github.com/shashirajraja/Train-Ticket-Reservation-System/blob/master/Screenshots/passwordchange.png" width="100%">
-
-7. Train Fare Enquiry
+11. Fare Enquiry
 <img src="https://github.com/shashirajraja/Train-Ticket-Reservation-System/blob/master/Screenshots/fareenquiry.png" width="100%">
 
-8. Train Details
-<img src="https://github.com/shashirajraja/Train-Ticket-Reservation-System/blob/master/Screenshots/Availability.png" width= "100%">
+12. Change Password
+<img src="https://github.com/shashirajraja/Train-Ticket-Reservation-System/blob/master/Screenshots/passwordchange.png" width="100%">
 
-
-9. User Home
-<img src="https://github.com/shashirajraja/Train-Ticket-Reservation-System/blob/master/Screenshots/userhome.png" width="100%">
-
-
-10. Book Trains Now
-<img src="https://github.com/shashirajraja/Train-Ticket-Reservation-System/blob/master/Screenshots/booknow.png" width="100%">
-
-11. Train Ticket Book
-<img src="https://github.com/shashirajraja/Train-Ticket-Reservation-System/blob/master/Screenshots/TicketBook.png" width="100%">
+13. Add Trains By Admin
+<img src="https://github.com/shashirajraja/Train-Ticket-Reservation-System/blob/master/Screenshots/addtrains.png" width="100%">
 
 
 #### "Suggestions and project Improvement are Invited"
