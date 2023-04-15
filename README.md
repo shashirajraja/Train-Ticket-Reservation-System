@@ -157,7 +157,7 @@ SELECT * FROM HISTORY;
 Note: If any of the above commands fails, please try to fix it first and then proceed to next step
 	
 ### ====== Importing and Running the Project Through Eclipse EE ===========
-Step 0: Open Eclipse Enterprise Edition. !(Install if not available)[https://www.youtube.com/watch?v=8aDsEV7txXE]
+Step 0: Open Eclipse Enterprise Edition. [Install if not available](https://www.youtube.com/watch?v=8aDsEV7txXE)
 
 Step 1: Click On File > Import > Git > Projects From Git > Clone Uri  > Paste The Repository Url: ```https://github.com/shashirajraja/Train-Ticket-Reservation-System.git``` > Next > Select Master Branch > Next > Finish
 
