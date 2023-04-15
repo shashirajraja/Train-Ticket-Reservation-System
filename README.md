@@ -44,24 +44,24 @@ This project is about the Train-Ticket-Reservation-System which is used to view 
 
 ### Technologies used:-
 1. Front-End Development:
-- Html
-- Css
-- Javascript
+- HTML
+- CSS
+- Bootstrap
 
 2. Back-End Development
-- Java
+- Java [J2EE]
 - JDBC
 - Servlet
 - Oracle ( SQL )
 
 ### ==== Software And Tools Required ======
-- : Git
-- : Eclipse EE
-- : Java JDK 8+
+- : Git [https://www.youtube.com/watch?v=gv7VPQ4LZ7g]
+- : Java JDK 8+ [https://www.youtube.com/watch?v=O9PWH9SeTTE]
+- : Eclipse EE [https://www.youtube.com/watch?v=8aDsEV7txXE]
+- : Apache Maven [https://www.youtube.com/watch?v=jd2zx3dLjuw]
 - : Tomcat v8.0+
-- : Maven
-- : Oracle (SQL) / SQL PLUS
-- : Oracle SQL Developer
+- : Oracle (SQL) / SQL PLUS [https://www.youtube.com/watch?v=ZYOqykEDSqU]
+- : Oracle SQL Developer [https://www.youtube.com/watch?v=2a1JKIGVtd0]
 
 ### ========== Dummy Database Initialization ===========
 
@@ -157,11 +157,13 @@ SELECT * FROM HISTORY;
 Note: If any of the above commands fails, please try to fix it first and then proceed to next step
 	
 ### ====== Importing and Running the Project Through Eclipse EE ===========
-Step 0: Open Eclipse Enterprise Edition. [Install if not available]
+Step 0: Open Eclipse Enterprise Edition. !(Install if not available)[https://www.youtube.com/watch?v=8aDsEV7txXE]
 
 Step 1: Click On File > Import > Git > Projects From Git > Clone Uri  > Paste The Repository Url: ```https://github.com/shashirajraja/Train-Ticket-Reservation-System.git``` > Next > Select Master Branch > Next > Finish
 
-Step 2: Right Click On Project > Build Path > Configure Build Path > Libraries > Remove And Update Any Libraries With Red Mark > Finish
+Step 2.A: Right Click on Project > Run as > Maven Build > In the goals field enter "clean install" > apply > run
+
+Step 2.B: Right Click On Project > Build Path > Configure Build Path > Libraries > Remove And Update Any Libraries With Red Mark > Finish
 
 Step 3: [Only if Tomcat v8.0 is not Configured in Eclipse]: Right Click On Project > Run As > Run On Server > Select Tomcat v8.0 > (Select Tomcat V8.0 Installation Location If Asked) Next > Add <project-name> > Finish
 
