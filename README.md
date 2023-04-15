@@ -77,14 +77,15 @@ ALTER SESSION SET "_ORACLE_SCRIPT"=TRUE;
 CREATE USER RESERVATION IDENTIFIED BY MANAGER;
 GRANT DBA TO RESERVATION;
 COMMIT;
-CONNECT RESERVATION/MANAGER;
 
 ```
 NOTE: If the above command fails for alter session issues, try to remove first line and then execute it.
 
 STEP 4: Now execute the below sql query in same terminal
+
 ```SQL
 
+CONNECT RESERVATION/MANAGER;
 CREATE TABLE "RESERVATION"."CUSTOMER" 
 (	
 "MAILID" VARCHAR2(40) PRIMARY KEY, 
