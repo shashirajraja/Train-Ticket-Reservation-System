@@ -14,6 +14,8 @@ import com.shashi.constant.ResponseCode;
 import com.shashi.service.BookingService;
 import com.shashi.utility.DBUtil;
 
+//Service Implementaion class for booking details of the ticket
+//Creates the booking history and save to database
 public class BookingServiceImpl implements BookingService {
 
 	@Override
