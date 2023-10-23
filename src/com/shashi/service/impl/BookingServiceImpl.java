@@ -74,7 +74,7 @@ public class BookingServiceImpl implements BookingService {
 			}
 			ps.close();
 		} catch (SQLException e) {
-			System.out.println(e.getMessage());
+			System.out.println("error is  " + e.getMessage());
 			throw new TrainException(e.getMessage());
 		}
 		return history;
