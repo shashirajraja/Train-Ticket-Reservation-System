@@ -4,11 +4,11 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Optional;
 
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 import com.shashi.beans.TrainException;
 import com.shashi.constant.ResponseCode;
@@ -25,10 +25,10 @@ public class ErrorHandlerServlet extends HttpServlet {
 		res.setContentType("text/html");
 
 		// Fetch the exceptions
-		Throwable throwable = (Throwable) req.getAttribute("javax.servlet.error.exception");
-		Integer statusCode = (Integer) req.getAttribute("javax.servlet.error.status_code");
-		String servletName = (String) req.getAttribute("javax.servlet.error.servlet_name");
-		String requestUri = (String) req.getAttribute("javax.servlet.error.request_uri");
+		Throwable throwable = (Throwable) req.getAttribute("jakarta.servlet.error.exception");
+		Integer statusCode = (Integer) req.getAttribute("jakarta.servlet.error.status_code");
+		String servletName = (String) req.getAttribute("jakarta.servlet.error.servlet_name");
+		String requestUri = (String) req.getAttribute("jakarta.servlet.error.request_uri");
 		String errorMessage = ResponseCode.INTERNAL_SERVER_ERROR.getMessage();
 		String errorCode = ResponseCode.INTERNAL_SERVER_ERROR.name();
 
