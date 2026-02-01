@@ -1,0 +1,68 @@
+pipeline {
+    agent any
+
+    tools {
+        jdk 'java'  // Make sure this matches the JDK name in Manage Jenkins → Tools
+    }
+
+    stages {
+
+        // Stage 1: Checkout Source Code
+        stage('Checkout Source Code') {
+            steps {
+                echo "Cloning repository..."
+                git url: 'https://github.com/Wakekar/Train-Ticket-Reservation-System.git', branch: 'master'
+            }
+        }
+
+        // Stage 2: Verify Java
+        stage('Verify Java') {
+            steps {
+                sh '''
+                    echo "JAVA_HOME=$JAVA_HOME"
+                    java -version
+                '''
+            }
+        }
+
+        // Stage 3: Build (Placeholder for build, uncomment if needed)
+        stage('Build') {
+            steps {
+                echo "Build stage goes here"
+                // Example (uncomment if using Maven):
+                // sh 'mvn clean package'
+            }
+        }
+
+        // Stage 4: Deploy to Kubernetes
+        stage('Deploy to Kubernetes') {
+            steps {
+                echo "Deploying application to Kubernetes..."
+                sh '''
+                    kubectl apply -f train-ticket-app.yaml
+                    kubectl rollout status deployment/train-ticket-app
+                '''
+            }
+        }
+
+        // Stage 5: Verify Deployment
+        stage('Verify Deployment') {
+            steps {
+                sh '''
+                    kubectl get pods
+                    kubectl get svc
+                '''
+            }
+        }
+    }
+
+    // Post actions for success or failure
+    post {
+        success {
+            echo '✅ Pipeline executed successfully'
+        }
+        failure {
+            echo '❌ Pipeline failed'
+        }
+    }
+}
