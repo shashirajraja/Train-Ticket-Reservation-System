@@ -7,6 +7,7 @@ pipeline {
 
     stages {
 
+        // Stage: Install kubectl
         stage('Install kubectl') {
             steps {
                 sh '''
@@ -18,6 +19,7 @@ pipeline {
             }
         }
 
+        // Stage: Checkout Source Code
         stage('Checkout Source Code') {
             steps {
                 echo "Cloning repository..."
@@ -25,6 +27,7 @@ pipeline {
             }
         }
 
+        // Stage: Verify Java
         stage('Verify Java') {
             steps {
                 sh '''
@@ -34,12 +37,14 @@ pipeline {
             }
         }
 
+        // Stage: Build
         stage('Build') {
             steps {
                 echo "Build stage goes here"
             }
         }
 
+        // Stage: Deploy to Kubernetes
         stage('Deploy to Kubernetes') {
             steps {
                 echo "Deploying application to Kubernetes..."
@@ -50,6 +55,7 @@ pipeline {
             }
         }
 
+        // Stage: Verify Deployment
         stage('Verify Deployment') {
             steps {
                 sh '''
