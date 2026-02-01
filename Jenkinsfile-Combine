@@ -2,12 +2,22 @@ pipeline {
     agent any
 
     tools {
-        jdk 'java'  // Make sure this matches the JDK name in Manage Jenkins → Tools
+        jdk 'java'
     }
 
     stages {
 
-        // Stage 1: Checkout Source Code
+        stage('Install kubectl') {
+            steps {
+                sh '''
+                    curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+                    chmod +x kubectl
+                    sudo mv kubectl /usr/local/bin/
+                    kubectl version --client
+                '''
+            }
+        }
+
         stage('Checkout Source Code') {
             steps {
                 echo "Cloning repository..."
@@ -15,7 +25,6 @@ pipeline {
             }
         }
 
-        // Stage 2: Verify Java
         stage('Verify Java') {
             steps {
                 sh '''
@@ -25,16 +34,12 @@ pipeline {
             }
         }
 
-        // Stage 3: Build (Placeholder for build, uncomment if needed)
         stage('Build') {
             steps {
                 echo "Build stage goes here"
-                // Example (uncomment if using Maven):
-                // sh 'mvn clean package'
             }
         }
 
-        // Stage 4: Deploy to Kubernetes
         stage('Deploy to Kubernetes') {
             steps {
                 echo "Deploying application to Kubernetes..."
@@ -45,7 +50,6 @@ pipeline {
             }
         }
 
-        // Stage 5: Verify Deployment
         stage('Verify Deployment') {
             steps {
                 sh '''
@@ -56,7 +60,6 @@ pipeline {
         }
     }
 
-    // Post actions for success or failure
     post {
         success {
             echo '✅ Pipeline executed successfully'
