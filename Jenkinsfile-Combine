@@ -1,0 +1,77 @@
+pipeline {
+    agent any
+
+    tools {
+        jdk 'java'
+    }
+
+    stages {
+
+        // Stage: Install kubectl
+        stage('Install kubectl') {
+            steps {
+                sh '''
+                    curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+                    chmod +x kubectl
+                    sudo mv kubectl /usr/local/bin/
+                    kubectl version --client
+                '''
+            }
+        }
+
+        // Stage: Checkout Source Code
+        stage('Checkout Source Code') {
+            steps {
+                echo "Cloning repository..."
+                git url: 'https://github.com/Wakekar/Train-Ticket-Reservation-System.git', branch: 'master'
+            }
+        }
+
+        // Stage: Verify Java
+        stage('Verify Java') {
+            steps {
+                sh '''
+                    echo "JAVA_HOME=$JAVA_HOME"
+                    java -version
+                '''
+            }
+        }
+
+        // Stage: Build
+        stage('Build') {
+            steps {
+                echo "Build stage goes here"
+            }
+        }
+
+        // Stage: Deploy to Kubernetes
+        stage('Deploy to Kubernetes') {
+            steps {
+                echo "Deploying application to Kubernetes..."
+                sh '''
+                    kubectl apply -f train-ticket-app.yaml
+                    kubectl rollout status deployment/train-ticket-app
+                '''
+            }
+        }
+
+        // Stage: Verify Deployment
+        stage('Verify Deployment') {
+            steps {
+                sh '''
+                    kubectl get pods
+                    kubectl get svc
+                '''
+            }
+        }
+    }
+
+    post {
+        success {
+            echo '✅ Pipeline executed successfully'
+        }
+        failure {
+            echo '❌ Pipeline failed'
+        }
+    }
+}

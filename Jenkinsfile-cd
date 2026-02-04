@@ -1,0 +1,41 @@
+pipeline {
+    agent any
+
+    stages {
+
+        stage('Checkout Source Code') {
+            steps {
+                echo "Cloning repository..."
+                git url: 'https://github.com/Wakekar/Train-Ticket-Reservation-System.git', branch: 'master'
+            }
+        }
+
+        stage('Deploy to Kubernetes') {
+            steps {
+                echo "Deploying application to Kubernetes..."
+                sh '''
+                kubectl apply -f train-ticket-app.yaml
+                kubectl rollout status deployment/train-ticket-app
+                '''
+            }
+        }
+
+        stage('Verify Deployment') {
+            steps {
+                sh '''
+                kubectl get pods
+                kubectl get svc
+                '''
+            }
+        }
+    }
+
+    post {
+        success {
+            echo "✅ Application successfully deployed to Kubernetes"
+        }
+        failure {
+            echo "❌ Kubernetes deployment failed"
+        }
+    }
+}

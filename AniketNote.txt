@@ -1,0 +1,98 @@
+1️⃣ Install Java 17 (Amazon Linux)
+
+yum update -y
+yum install java-17 -y
+java -version
+yum install git -y
+
+Install Nginx :  
+yum install nginx -y
+systemctl enable nginx
+systemctl start nginx
+
+Make Some changes in the File by using following commands and Set Permissions :
+
+# 1️⃣ Go to Nginx web root
+cd /usr/share/nginx/html
+
+# 2️⃣ Copy actual web files from WebContent to root
+sudo cp -r WebContent/* /usr/share/nginx/html/
+
+# 3️⃣ Fix ownership so Nginx can read the files
+sudo chown -R nginx:nginx /usr/share/nginx/html
+
+# 4️⃣ Fix permissions so files are readable by everyone
+sudo chmod -R 755 /usr/share/nginx/html
+
+# 5️⃣ Restart Nginx to apply changes
+sudo systemctl restart nginx
+
+# 6️⃣ Verify the files and permissions
+ls -l /usr/share/nginx/html
+
+
+
+2️⃣ Jenkins Installation (no changes)     or    Use Jenkins.war  file on apache tomcat
+
+sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
+sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
+sudo yum install -y jenkins
+sudo systemctl enable jenkins
+sudo systemctl start jenkins
+sudo systemctl status jenkins
+
+3️⃣ Nginx, Git, curl
+
+sudo amazon-linux-extras enable nginx1
+sudo yum install -y nginx git curl
+sudo systemctl enable nginx
+sudo systemctl start nginx
+
+4️⃣ Jenkins sudo privileges
+
+sudo visudo
+
+Add:
+jenkins ALL=(ALL) NOPASSWD: ALL
+
+
+5️⃣ CI Pipeline Setup (Jenkins)
+
+Steps for CI (Compile / Build / Test):
+Create a new Jenkins job → Name it Train-Ticket-CI → Type: Pipeline
+Pipeline configuration → Pipeline script from SCM
+SCM: Git
+Repository URL: https://github.com/Wakekar/Train-Ticket-Reservation-System.git
+Branch: main
+Script Path: Jenkinsfile (your CI Jenkinsfile)
+
+
+5️⃣ CD Deployment Permissions
+
+sudo chown -R nginx:nginx /usr/share/nginx/html
+sudo chmod -R 755 /usr/share/nginx/html
+sudo systemctl restart nginx
+
+6️⃣ CD Jenkinsfile (Amazon Linux, Java 17 compatible)
+
+7️⃣ CD Pipeline Setup (Jenkins)
+
+Steps:
+
+Create a new Jenkins job → Name it Train-Ticket-CD → Type: Pipeline
+Pipeline configuration → Pipeline script from SCM
+SCM: Git
+Repository URL: https://github.com/Wakekar/Train-Ticket-Reservation-System.git
+Branch: main
+Script Path: Jenkinsfile-cd
+
+8️⃣ Optional: Trigger CD from CI
+
+At the end of your CI Jenkinsfile:
+
+stage('Trigger CD') {
+    steps {
+        build job: 'Train-Ticket-CD', wait: true
+    }
+}
+
