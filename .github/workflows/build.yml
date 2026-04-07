@@ -1,0 +1,33 @@
+name: Build Artifact
+
+on:
+  push:
+    branches:
+      - master   # Only master branch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest   # GitHub Linux runner
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Java
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+
+      - name: Install httpd (optional)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y apache2   # httpd equivalent
+
+      - name: Build WAR
+        run: mvn clean package
+
+      - name: Upload WAR artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: my-app-war
+          path: target/*.war
