@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.shashi.beans.TrainBean;
 import com.shashi.beans.TrainException;
+import com.shashi.constant.UserRole;
+import com.shashi.utility.TrainUtil;
 import com.shashi.service.TrainService;
 import com.shashi.service.impl.TrainServiceImpl;
 
@@ -24,6 +26,8 @@ public class UpdateTrainSchedule extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
 		res.setContentType("text/html");
 		PrintWriter pw = res.getWriter();
+
+		TrainUtil.validateUserAuthorization(req, UserRole.ADMIN);
 
 		try {
 
